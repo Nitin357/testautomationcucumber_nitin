@@ -86,8 +86,8 @@
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>4.8.0</version>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.13.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
