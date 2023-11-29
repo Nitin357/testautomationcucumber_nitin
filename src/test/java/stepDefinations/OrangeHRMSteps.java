@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.time.Duration;
+
 public class OrangeHRMSteps {
 
     WebDriver driver;
@@ -14,15 +16,15 @@ public class OrangeHRMSteps {
     public void i_launch_chrome_browser() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver","drivers/windows/chromedriver.exe");
         driver = new ChromeDriver();
-        Thread.sleep(4000);
 
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(60));
 
     }
 
     @When("I open OrangeHRM Home Page")
     public void i_open_orange_hrm_home_page() throws InterruptedException {
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        Thread.sleep(4000);
 
 
     }
