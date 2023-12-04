@@ -5,7 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "C://Users//nitin.magar.ININDCRWS//Documents//GitHub//testautomationcucumber_nitin//features//OrangeHRM.feature",
+        features = "C://Users//nitin.magar.ININDCRWS//Documents//GitHub//testautomationcucumber_nitin//features//LoginOrangeHRM.feature",
         glue = "stepDefinations"
 )
 public class TestRunner {

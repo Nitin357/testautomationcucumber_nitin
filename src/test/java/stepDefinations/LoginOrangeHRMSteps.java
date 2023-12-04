@@ -12,8 +12,6 @@ import java.time.Duration;
 public class LoginOrangeHRMSteps {
 
     WebDriver driver;
-    loginPage login;
-    dashboard dash;
 
     @Given("Browser is Open")
     public void browser_is_open() {
@@ -30,34 +28,35 @@ public class LoginOrangeHRMSteps {
     }
     @When("the user enters valid username and password credentials")
     public void the_user_enters_valid_username_and_password_credentials() throws InterruptedException {
-        login = new loginPage(driver);
+        loginPage login =new loginPage(driver);
         login.enterUsername("Admin");
         login.enterPassword("admin123");
         Thread.sleep(4000);
-    }
+           }
+
     @When("the user enters invalid credentials")
     public void the_user_enters_invalid_credentials() throws InterruptedException {
-        login = new loginPage(driver);
+        loginPage login =new loginPage(driver);
         login.enterUsername("Admin");
         login.enterPassword("admin");
         Thread.sleep(4000);
     }
     @When("clicks the login button")
     public void clicks_the_login_button() throws InterruptedException {
-        login = new loginPage(driver);
+        loginPage login =new loginPage(driver);
         login.clickLogin();
         Thread.sleep(4000);
     }
     @Then("the user should be redirected to the dashboard")
     public void the_user_should_be_redirected_to_the_dashboard() {
-        dash = new dashboard(driver);
+        dashboard dash =new dashboard(driver);
         Assert.assertEquals("Dashboard", dash.text_dasboard());
         driver.close();
     }
 
     @Then("the user should see an error message")
     public void the_user_should_see_an_error_message() {
-        login = new loginPage(driver);
+        loginPage login =new loginPage(driver);
         Assert.assertTrue(login.error_invalidlogin());
         driver.close();
     }
