@@ -1,7 +1,5 @@
-Feature: User Login As a registered user
+Feature: Login As a registered user
 
-
-  @smoke
   Scenario: Successful Login
     Given User is on login page
     When the user enters valid username and password credentials

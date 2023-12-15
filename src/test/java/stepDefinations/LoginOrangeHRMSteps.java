@@ -1,5 +1,7 @@
 package stepDefinations;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -13,8 +15,8 @@ public class LoginOrangeHRMSteps {
 
     WebDriver driver;
 
-    @Given("Browser is Open")
-    public void browser_is_open() {
+    @Before
+    public void browserSetup() {
         System.setProperty("webdriver.chrome.driver","drivers/windows/chromedriver.exe");
         driver = new ChromeDriver();
 
@@ -51,14 +53,20 @@ public class LoginOrangeHRMSteps {
     public void the_user_should_be_redirected_to_the_dashboard() {
         dashboard dash =new dashboard(driver);
         Assert.assertEquals("Dashboard", dash.text_dasboard());
-        driver.close();
     }
 
     @Then("the user should see an error message")
     public void the_user_should_see_an_error_message() {
         loginPage login =new loginPage(driver);
         Assert.assertTrue(login.error_invalidlogin());
+
+    }
+
+    @After
+    public void teardown()
+    {
         driver.close();
+        driver.quit();
     }
 
 
