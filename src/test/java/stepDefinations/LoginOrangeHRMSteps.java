@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class LoginOrangeHRMSteps {
 
-    WebDriver driver;
+    WebDriver driver= null;
 
     @Before
     public void browserSetup() {
