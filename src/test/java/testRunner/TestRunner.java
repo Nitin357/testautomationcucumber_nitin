@@ -1,6 +1,4 @@
 package testRunner;
-import io.cucumber.java.After;
-import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
@@ -18,7 +16,10 @@ import io.cucumber.junit.CucumberOptions;
         features = "features",
         glue = "stepDefinations",
         tags = "@smoke or @regression",
-        plugin = {"json:target/cucumber.json","html:target/cucumber.html"}
+        plugin = {"pretty",
+                "json:target/cucumber.json",
+                "html:target/cucumber.html"}
+
 )
 public class TestRunner {
 
